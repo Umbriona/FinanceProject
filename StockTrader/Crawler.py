@@ -5,28 +5,34 @@ import schedule
 import time
 import numpy as np
 
-def stock_spider(state = 'open'):
-    page_url = r'https://finance.yahoo.com/quote/AMD?p=AMD&guccounter=1'
-    source_code = requests.get(page_url)
-    plane_text = source_code.text
-    soup = BeautifulSoup(plane_text, "html.parser")
 
-    filename_open = ''
-    filename_closed = ''
-    title = ''
-    if state == 'open':
-        for link1 in soup.find_all('span', class_="Trsdu(0.3s)"):
-            title += link1.string + ' '
-        fw = open('w', filename_open)
-        fw.write(title + '\n')
-        fw.close()
+class Stock:
+    path = r"C:\Users\sandr\Documents\FinanceProject\StockTrader\"
+    def __init__(self, url, filename):
+        self.page_url = url
+        self.file_path = self.path + filename
 
-    elif state == 'closed':
-        for link1 in soup.find_all('span', class_="Trsdu(0.3s) "):
-            title += link1.string + ' '
-        fw = open('w', filename_closed)
-        fw.write(title + '\n')
-        fw.close()
+    def stock_spider(self, state = 'open'):
+        source_code = requests.get(self.page_url)
+        plane_text = source_code.text
+        soup = BeautifulSoup(plane_text, "html.parser")
+
+        filename_open = ''
+        filename_closed = ''
+        title = ''
+        if state == 'open':
+            for link1 in soup.find_all('span', class_="Trsdu(0.3s)"):
+                title += link1.string + ' '
+            fw = open('w', self.file_path + '_open')
+            fw.write(title + '\n')
+            fw.close()
+
+        elif state == 'closed':
+            for link1 in soup.find_all('span', class_="Trsdu(0.3s) "):
+                title += link1.string + ' '
+            fw = open('w', self.file_path + '_closed')
+            fw.write(title + '\n')
+            fw.close()
 
 
 def job_stock_exchange_opening():
