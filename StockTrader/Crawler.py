@@ -1,68 +1,85 @@
 import requests
 from bs4 import BeautifulSoup
-import datetime
-import schedule
 import time
 import numpy as np
+import threading
 
 
-class Stock:
-    path = r"C:\Users\sandr\Documents\FinanceProject\StockTrader\"
+class Stock(threading.Thread):
+    path_open = "E:\Financial_data\open\\"
+    path_closed = "E:\Financial_data\closed\\"
+
     def __init__(self, url, filename):
+        threading.Thread.__init__(self)
         self.page_url = url
-        self.file_path = self.path + filename
+        self.file_name = filename
 
-    def stock_spider(self, state = 'open'):
-        source_code = requests.get(self.page_url)
-        plane_text = source_code.text
-        soup = BeautifulSoup(plane_text, "html.parser")
+    def run(self):
+        while True:
+            source_code = requests.get(self.page_url)
+            plane_text = source_code.text
+            soup = BeautifulSoup(plane_text, "html.parser")
+            day = time.strftime("%a", time.gmtime())
+            if time.localtime()[3] < 22 and time.localtime()[3] > 16 and (day != 'Sat' or day != 'Sun'):
+                state = 'open'
+            else:
+                state = 'closed'
 
-        filename_open = ''
-        filename_closed = ''
-        title = ''
-        if state == 'open':
-            for link1 in soup.find_all('span', class_="Trsdu(0.3s)"):
-                title += link1.string + ' '
-            fw = open('w', self.file_path + '_open')
-            fw.write(title + '\n')
-            fw.close()
+            title = ''
 
-        elif state == 'closed':
-            for link1 in soup.find_all('span', class_="Trsdu(0.3s) "):
-                title += link1.string + ' '
-            fw = open('w', self.file_path + '_closed')
-            fw.write(title + '\n')
-            fw.close()
+            if state == 'open':
+                for link1 in soup.find_all('span', class_="Trsdu(0.3s)"):
+                    title += link1.string + ' '
+                fw = open(self.path_open + self.file_name + '_open.txt', 'a')
+                tim = str(time.localtime()[3]) + ':' + str(time.localtime()[4]) + ':' + str(time.localtime()[5])
+                date = str(time.localtime()[0]) + ':' + str(time.localtime()[1]) + ':' + str(time.localtime()[2])
+                fw.write(title + ' ' + tim + ' ' + date + '\n')
+                fw.close()
+                time.sleep(np.random.randint(300, 600))
 
-
-def job_stock_exchange_opening():
-    while time.localtime()[3] < 22:
-        if time.localtime()[4]%10:
-            time.sleep(np.randomint(100))
-            stock_spider('open')
-
-
-def job_stock_exchange_closing():
-    while time.localtime()[3] > 22 or time.localtime()[3] < 15:
-        if time.localtime()[4] % 29:
-            time.sleep(np.randomint(100))
-            stock_spider('closed')
+            elif state == 'closed':
+                for link1 in soup.find_all('span', class_="Trsdu(0.3s) "):
+                    title += link1.string + ' '
+                fw = open(self.path_closed + self.file_name + '_closed.txt', 'a')
+                tim = str(time.localtime()[3]) + ':' + str(time.localtime()[4]) + ':' + str(time.localtime()[5])
+                date = str(time.localtime()[0]) + ':' + str(time.localtime()[1]) + ':' + str(time.localtime()[2])
+                fw.write(title + ' ' + tim + ' ' + date + '\n')
+                fw.close()
+                time.sleep(np.random.randint(1800, 2400))
 
 
 def main():
-    struct_time = time.localtime()
-    print(struct_time[3])
-    schedule.every().monday.at("15:30").do(job_stock_exchange_opening())
-    schedule.every().tuesday.at("15:30").do(job_stock_exchange_opening())
-    schedule.every().wednesday.at("15:30").do(job_stock_exchange_opening())
-    schedule.every().thursday.at("15:30").do(job_stock_exchange_opening())
-    schedule.every().friday.at("15:30").do(job_stock_exchange_opening())
 
-    schedule.every().monday.at("22:00").do(job_stock_exchange_closing())
-    schedule.every().tuesday.at("22:00").do(job_stock_exchange_closing())
-    schedule.every().wednesday.at("22:00").do(job_stock_exchange_closing())
-    schedule.every().thursday.at("22:00").do(job_stock_exchange_closing())
-    schedule.every().friday.at("22:00").do(job_stock_exchange_closing())
+    # file names
+    amd_filename = "Amd"
+    nvidia_filename = "Nvidia"
+    micron_filename = "Micron"
+    alibaba_filename = "Alibaba"
+    netflix_filename = "Netflix"
+    intel_filename = 'Intel'
+
+    # Websites
+    amd_url = "https://finance.yahoo.com/quote/AMD?p=AMD&guccounter=1"
+    nvidia_url = "https://finance.yahoo.com/quote/NVDA?p=NVDA"
+    micron_url = "https://finance.yahoo.com/quote/MU?p=MU"
+    alibaba_url = "https://finance.yahoo.com/quote/BABA?p=BABA"
+    netflix_url = "https://finance.yahoo.com/quote/NFLX?p=NFLX"
+    intel_url = "https://finance.yahoo.com/quote/INTC?p=INTC"
+
+    # Stock objects
+    amd_object = Stock(amd_url, amd_filename)
+    nvidia_object = Stock(nvidia_url, nvidia_filename)
+    micron_object = Stock(micron_url, micron_filename)
+    alibaba_object = Stock(alibaba_url, alibaba_filename)
+    netflix_object = Stock(netflix_url, netflix_filename)
+    intel_object = Stock(intel_url, intel_filename)
+
+    amd_object.start()
+    nvidia_object.start()
+    micron_object.start()
+    alibaba_object.start()
+    netflix_object.start()
+    intel_object.start()
 
 
 if __name__ == "__main__":
