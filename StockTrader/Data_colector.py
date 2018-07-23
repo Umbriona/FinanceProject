@@ -43,7 +43,7 @@ class Stock(threading.Thread):
                 fw = open(self.path_closed + self.file_name + '_closed.txt', 'a')
                 tim = str(time.localtime()[3]) + ':' + str(time.localtime()[4]) + ':' + str(time.localtime()[5])
                 date = str(time.localtime()[0]) + ':' + str(time.localtime()[1]) + ':' + str(time.localtime()[2])
-                fw.write(title + ' ' + tim + ' ' + date + '\n')
+                fw.write(title + tim + ' ' + date + '\n')
                 fw.close()
                 time.sleep(np.random.randint(1800, 2400))
 

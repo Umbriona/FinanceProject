@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e44ccc52-bc1b-4759-bf57-e233372f6b75" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/StockTrader/Data_colector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StockTrader/Data_plotter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StockTrader/Parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/StockTrader/Regression_analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StockTrader/Crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/StockTrader/Crawler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StockTrader/Data_colector.py" beforeDir="false" afterPath="$PROJECT_DIR$/StockTrader/Data_colector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StockTrader/Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/StockTrader/Parser.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="Data_colector.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/StockTrader/Data_colector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-272">
-              <caret line="8" column="39" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="39" />
+            <state relative-caret-position="238">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -32,15 +31,27 @@
       <file leaf-file-name="Parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/StockTrader/Parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+            <state relative-caret-position="884">
+              <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Data_plotter.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Data_plotter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/StockTrader/Data_plotter.py">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Regression_analysis.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/StockTrader/Regression_analysis.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="Crawler.py" pinned="false" current-in-tab="false">
@@ -79,10 +90,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/StockTrader/Data_colector.py" />
         <option value="$PROJECT_DIR$/StockTrader/Crawler.py" />
-        <option value="$PROJECT_DIR$/StockTrader/Parser.py" />
         <option value="$PROJECT_DIR$/StockTrader/Data_plotter.py" />
+        <option value="$PROJECT_DIR$/StockTrader/Data_colector.py" />
+        <option value="$PROJECT_DIR$/StockTrader/Regression_analysis.py" />
+        <option value="$PROJECT_DIR$/StockTrader/Parser.py" />
       </list>
     </option>
   </component>
@@ -132,7 +144,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Parser">
+  <component name="RunManager" selected="Python.Data_colector">
     <configuration name="Crawler" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FinanceProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -146,6 +158,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="C:\Users\sandr\Documents\FinanceProject\StockTrader\Data_colector.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Data_colector" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FinanceProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/StockTrader" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/StockTrader/Data_colector.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -169,13 +199,34 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="Regression_analysis" type="PythonConfigurationType" factoryName="Python">
+      <module name="FinanceProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/StockTrader" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/StockTrader/Regression_analysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list>
       <item itemvalue="Python.Crawler" />
       <item itemvalue="Python.Parser" />
+      <item itemvalue="Python.Regression_analysis" />
+      <item itemvalue="Python.Data_colector" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Parser" />
+        <item itemvalue="Python.Data_colector" />
         <item itemvalue="Python.Crawler" />
       </list>
     </recent_temporary>
@@ -202,11 +253,11 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32925585" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" x="0" y="346" width="1920" height="388" id="Run" order="2" visible="true" weight="0.3955148" />
+      <window_info anchor="bottom" x="0" y="346" width="1920" height="388" id="Run" order="2" weight="0.3955148" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32925585" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39959225" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39959225" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -224,21 +275,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/StockTrader/Parser.py</url>
-          <line>33</line>
+          <line>41</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/StockTrader/Parser.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/StockTrader/Parser.py</url>
-          <line>61</line>
+          <line>69</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -269,23 +315,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StockTrader/Data_colector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="8" column="39" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/StockTrader/Crawler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -296,15 +325,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StockTrader/Parser.py">
+    <entry file="file://$PROJECT_DIR$/StockTrader/Data_plotter.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StockTrader/Data_plotter.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/StockTrader/Parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StockTrader/Data_colector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StockTrader/Regression_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
