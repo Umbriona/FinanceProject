@@ -5,7 +5,10 @@ import numpy as np
 
 
 def parse_open(file_path='E:\\Financial_data\\open\\Amd_open.txt'):
-    dr = open(file_path, 'r')
+    try:
+        dr = open(file_path, 'r')
+    except FileNotFoundError:
+        dr = open("C:\\Users\sandr\Documents\Financial_data\open\\Amd_open.txt", 'r')
     plane_text = dr.read()
     plane_text = ''.join(c for c in plane_text if c not in 'xBM()%,')
     split_n_list = plane_text.split('\n')
