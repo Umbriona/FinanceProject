@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn import preprocessing
 
 
 def time_conversion(stock_data, time_interval='week', number=1):
@@ -14,7 +15,7 @@ def time_conversion(stock_data, time_interval='week', number=1):
         if is_leap_year(stock_date_year[length_stock_data_1 - 1]):
             month_days_arraay[1] = 29
         start_day = stock_date_day[length_stock_data_1 - 1]
-        start_month = stock_date_month[length_stock_data_1 - 2]
+        start_month = int(stock_date_month[length_stock_data_1 - 2])
         total_day = 7 * number
         day = start_day
         month = start_month
@@ -43,7 +44,7 @@ def time_conversion(stock_data, time_interval='week', number=1):
             start_indice = np.amin(np.where(normalised_time == 0))
             end_indice = np.count_nonzero(condition) + start_indice
             normalised_time[start_indice:end_indice] = (stock_time[condition] - min_time_day) / \
-                                                       (max_time_day - min_time_day) + np.amax(normalised_time) + 0.01
+                                                       (max_time_day - min_time_day) + np.amax(normalised_time) + 0.0001
         day += 1
     return normalised_time
 
@@ -58,3 +59,26 @@ def stock_trade_normalisation(stock_trade):
     stock_trade_min = np.amin(stock_trade)
     stock_trade_max = np.amax(stock_trade)
     return (stock_trade - stock_trade_min) / (stock_trade_max - stock_trade_min)
+
+
+def stock_regime_data_scale(stock_regime_data):
+    scaled_data = preprocessing.scale(stock_regime_data, axis=0)
+    return scaled_data
+
+
+def get_hig_and_low(data, time_vec):
+    max_time = int(np.trunc(np.amax(time_vec)))
+    vec_max = np.zeros(np.shape(data))
+    vec_min = np.zeros(np.shape(data))
+    previous_time = 0
+    for i in range(max_time):
+        time = (i+1+(i+1)*0.0001)
+        condition = np.logical_and(np.greater(time_vec, previous_time), np.less_equal(time_vec, time))
+        vec_max[condition] = np.amax(data[condition])
+        vec_min[condition] = np.amin(data[condition])
+        previous_time = time
+    return vec_max, vec_min
+
+
+
+
